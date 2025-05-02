@@ -1,0 +1,78 @@
+.signupContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.858);
+}
+
+.signupForm{
+    width: 30%;
+    height: 60%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(143, 142, 142) ;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 20px;
+}
+
+.userNameBox{
+    width: 80%;
+    height: 25px;
+    color: black;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.emailBox{
+    width: 80%;
+    height: 25px;
+    color: black;
+    border: 1px solid black;
+    background-color: white;
+
+}
+
+.passwordBox{
+    width: 80%;
+    height: 25px;
+    color: black;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.role{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.activeRadio{
+    background-color: black;
+}
+
+.signupButton{
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.signupBox{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
