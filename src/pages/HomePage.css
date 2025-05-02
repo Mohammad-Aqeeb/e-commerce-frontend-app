@@ -1,0 +1,54 @@
+/* Homepage.css */
+
+.homepageContainer {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+    background-color: #f9f9f9;
+    color: black;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Section */
+.otherSection {
+    width: 15%;
+    color: black;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.otherSection div {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.otherSection input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #0077ff;
+}
+
+.otherSection label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Product Section */
+.productSection {
+    width: 85%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.noProductContainer{
+    width: 80%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
