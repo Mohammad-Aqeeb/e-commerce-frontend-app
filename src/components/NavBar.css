@@ -1,0 +1,67 @@
+/* NavBar.css */
+
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.logoBox{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.logo{
+    padding-top: 2px;
+    width: 170px;
+}
+
+.sections, .userSection {
+    display: flex;
+    gap: 20px;
+}
+
+.sections a, .userSection a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.sections a:hover, .userSection a:hover {
+    color: #00bcd4;
+}
+
+@media (max-width: 768px) {
+    .navbarContainer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sections, .userSection {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
+
+.userImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.userImage img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
