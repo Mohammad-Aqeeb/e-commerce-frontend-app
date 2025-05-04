@@ -1,10 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import "./Product.css";
 
-function Product({ product }) {
+function Product({ product, setSelectedProduct}) {
+
+    const navigate = useNavigate();
+
+    function singleProductHandler(){
+        setSelectedProduct(product);
+        navigate("/singlePage");
+    }
 
     let description = `${product.description.substring(0,200)}...`
     return (
-        <div className="productCard">
+        <div className="productCard" onClick={singleProductHandler}>
             <img className="productImage" src={product.image} alt={product.productName} />
 
             <div className="productInfo">
