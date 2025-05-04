@@ -4,21 +4,20 @@ import "./HomePage.css";
 import NavBar from "../components/NavBar";
 import axios from "axios";
 
-function HomePage({user}){
+function HomePage({user, products, setProducts ,setSelectedProduct}){
 
-    const [data, setData] = useState([]);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const [brandFilterData, setBrandFilterData] = useState([]);
     const [categoryFilterData, setCategoryFilterData] = useState([]);
-    
+
     async function fetchData() {
         try{
             let res = await axios.get("http://localhost:4000/api/v1/getProduct");
             let brandResponse = await axios.get("http://localhost:4000/api/v1/getBrands")
             let categoryResponse = await axios.get("http://localhost:4000/api/v1/getCategory")
 
-            setData(res.data.data);
+            setProducts(res.data.data);
             setBrands(brandResponse.data.data);
             setCategories(categoryResponse.data.data);
         }
@@ -49,17 +48,27 @@ function HomePage({user}){
         }
     }
 
-    async function brandFilterHandler(){
-        console.log(brandFilterData)
-        const res = await axios.post("http://localhost:4000/api/v1/getProductByBrand",{brandId : brandFilterData});
-        setData(res.data.data);
-    }
-    async function categoryfilterHandler(){
-        console.log(categoryFilterData)
-        const res = await axios.post("http://localhost:4000/api/v1/getProductByCategory",{categoryId : categoryFilterData});
-        setData(res.data.data);
-    }
+    // async function brandFilterHandler(){
+    //     console.log(brandFilterData)
+    //     const res = await axios.post("http://localhost:4000/api/v1/getProductByBrand",{brandId : brandFilterData});
+    //     setData(res.data.data);
+    // }
+    // async function categoryfilterHandler(){
+    //     console.log(categoryFilterData)
+    //     const res = await axios.post("http://localhost:4000/api/v1/getProductByCategory",{categoryId : categoryFilterData});
+    //     setData(res.data.data);
+    // }
     
+    async function filterHandler(){
+        const filterData = {
+            brandId : brandFilterData,
+            categoryId : categoryFilterData,
+        }
+        console.log(filterData);
+        const res = await axios.post("http://localhost:4000/api/v1/getFilterProduct",{filterData});
+        setData(res.data.data);
+    }
+
     useEffect(()=>{
         fetchData();
     },[])
@@ -81,8 +90,7 @@ function HomePage({user}){
                             
                         })
                     }
-                    <button onClick={brandFilterHandler}>Apply</button>
-
+                  
                     <h3>Category</h3>
                     {
                         categories.map((category)=>{
@@ -95,16 +103,16 @@ function HomePage({user}){
                         })
                     }
 
-                    <button onClick={categoryfilterHandler}>Apply</button>
+                    <button onClick={filterHandler}>Apply</button>
                 </div>
                 {
-                    (!data||data.length === 0) ? 
+                    (!products||products.length === 0) ? 
                     <div className="noProductContainer">
                         <div>No Product</div>
                     </div>
                     : 
                     <div className="productSection">
-                        <Products data={data}/>
+                        <Products products={products} setSelectedProduct={setSelectedProduct}/>
                     </div>
                     
                 }
