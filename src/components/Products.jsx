@@ -1,12 +1,12 @@
 import Product from "./Product";
 import "./Products.css"
-function Products({data}){
+function Products({products, setSelectedProduct}){
 
     return(
         <div className="productsContainer">
             {
-                data.map((product)=>{
-                    return <Product product={product} key={product._id}></Product>
+                products.map((product)=>{
+                    return <Product product={product} key={product._id} setSelectedProduct={setSelectedProduct}></Product>
                 })
             }
         </div>
