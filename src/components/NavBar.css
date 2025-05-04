@@ -51,6 +51,13 @@
     }
 }
 
+.userBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .userImage{
     display: flex;
     justify-content: center;
@@ -60,8 +67,22 @@
     border-radius: 50%;
 }
 
-.userImage img{
+.userimg{
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+.cartBox{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart{
+    width: 20px;
+    height: 20px;
+    color: white;
 }
