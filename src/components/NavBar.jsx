@@ -1,7 +1,8 @@
 import "./NavBar.css"
 import { Link } from "react-router-dom";
 import image from "../assets/imageUser.jpg";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
+import {BsCartFill} from "react-icons/bs";
 
 function NavBar({user}){
 
@@ -21,13 +22,18 @@ function NavBar({user}){
 
             {
                 user ? 
-                <div className="userImage">
+                <div className="userBox">
+                    <div className="userImage"></div>
                     {
                         user.image ? 
-                        <img src={"a"} alt="user"></img>
+                        <img src={"u"} alt="user" className="userimg"></img>
                         : 
-                        <img src={image}  alt="user"></img>
+                        <img src={image}  alt="user" className="userimg"></img>
                     }
+
+                    <Link to={"/cart"} className="cartBox">
+                        <BsCartFill className="cart"/>
+                    </Link>
                 </div>
                 :
                 <div className="userSection">
