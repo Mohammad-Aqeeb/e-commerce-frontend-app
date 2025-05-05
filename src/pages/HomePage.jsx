@@ -4,8 +4,9 @@ import "./HomePage.css";
 import NavBar from "../components/NavBar";
 import axios from "axios";
 
-function HomePage({user, products, setProducts ,setSelectedProduct}){
+function HomePage({user ,setSelectedProductId}){
 
+    const [products, setProducts] = useState([]);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
     const [brandFilterData, setBrandFilterData] = useState([]);
@@ -48,17 +49,6 @@ function HomePage({user, products, setProducts ,setSelectedProduct}){
         }
     }
 
-    // async function brandFilterHandler(){
-    //     console.log(brandFilterData)
-    //     const res = await axios.post("http://localhost:4000/api/v1/getProductByBrand",{brandId : brandFilterData});
-    //     setData(res.data.data);
-    // }
-    // async function categoryfilterHandler(){
-    //     console.log(categoryFilterData)
-    //     const res = await axios.post("http://localhost:4000/api/v1/getProductByCategory",{categoryId : categoryFilterData});
-    //     setData(res.data.data);
-    // }
-    
     async function filterHandler(){
         const filterData = {
             brandId : brandFilterData,
@@ -66,7 +56,7 @@ function HomePage({user, products, setProducts ,setSelectedProduct}){
         }
         console.log(filterData);
         const res = await axios.post("http://localhost:4000/api/v1/getFilterProduct",{filterData});
-        setData(res.data.data);
+        setProducts(res.data.data);
     }
 
     useEffect(()=>{
@@ -74,7 +64,7 @@ function HomePage({user, products, setProducts ,setSelectedProduct}){
     },[])
 
     return(
-        <div>
+        <div className="homePageMainContainer">
             <NavBar user={user}></NavBar>
             <div className="homepageContainer">
                 <div className="otherSection">
@@ -112,7 +102,7 @@ function HomePage({user, products, setProducts ,setSelectedProduct}){
                     </div>
                     : 
                     <div className="productSection">
-                        <Products products={products} setSelectedProduct={setSelectedProduct}/>
+                        <Products user={user} products={products} setSelectedProductId={setSelectedProductId}/>
                     </div>
                     
                 }
