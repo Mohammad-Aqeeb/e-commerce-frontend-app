@@ -12,19 +12,17 @@ import SingleProduct from './components/SingleProduct';
 function App() {
 
   const [user, setUser] = useState(undefined);
-  const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState({});
+  const [selectedProductId, setSelectedProductId] = useState(null);
 
-  console.log(selectedProduct)
   return (
     <div className='contaier'>
       <Routes>
         <Route path='/signup' element = {<Signup setUser={setUser}/>}></Route>
         <Route path='/login' element = {<Login setUser={setUser}/>}></Route>
 
-        <Route path='/' element = {<HomePage user={user} products={products} setProducts={setProducts} setSelectedProduct={setSelectedProduct}/>}></Route>
+        <Route path='/' element = {<HomePage user={user} setSelectedProductId={setSelectedProductId}/>}></Route>
         <Route path='/cart' element = {<CartPage user={user}/>}></Route>
-        <Route path='/singlePage' element = {<SingleProduct seletedProduct={selectedProduct}/>}></Route>
+        <Route path='/singlePage/:productId' element = {<SingleProduct user={user} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId}/>}></Route>
       </Routes>
     </div>
   )
