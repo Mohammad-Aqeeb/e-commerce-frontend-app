@@ -1,5 +1,9 @@
 /* Homepage.css */
 
+.homePageMainContainer{
+    width: 100%;
+}
+
 .homepageContainer {
     display: flex;
     padding: 20px;
