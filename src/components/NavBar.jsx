@@ -23,13 +23,14 @@ function NavBar({user}){
             {
                 user ? 
                 <div className="userBox">
-                    <div className="userImage"></div>
+                    <div className="userImage">
                     {
                         user.image ? 
-                        <img src={"u"} alt="user" className="userimg"></img>
+                        <img src={user.image} alt="user" className="userimg"></img>
                         : 
                         <img src={image}  alt="user" className="userimg"></img>
                     }
+                    </div>
 
                     <Link to={"/cart"} className="cartBox">
                         <BsCartFill className="cart"/>
